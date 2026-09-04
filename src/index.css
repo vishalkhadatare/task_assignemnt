@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+:root {
+  --snap-orange: #ff5e00;
+  --snap-orange-hover: #e65500;
+  --snap-orange-light: #ff8533;
+  --snap-bg: #ffffff;
+  --snap-bg-warm: #ffffff;
+  --snap-text: #1a1a1a;
+  --snap-text-secondary: #666666;
+  --snap-border: #e5e5e5;
+  --snap-glow: rgba(255, 94, 0, 0.15);
+  --snap-glass: rgba(255, 255, 255, 0.72);
+  --snap-glass-border: rgba(255, 255, 255, 0.3);
+}
+
+html {
+  background: #ffffff;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-width: 320px;
+  background: transparent;
+  color: #1a1a1a;
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* =================== GLASS MORPHISM =================== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+.glass-mobile-bar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* =================== ENTRANCE ANIMATIONS =================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes successBounce {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.4s ease-out both;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.35s ease-out both;
+}
+
+.animate-modalEnter {
+  animation: modalEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-successBounce {
+  animation: successBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Staggered animation delays */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+
+/* =================== CTA EFFECTS =================== */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 94, 0, 0.3); }
+  50% { box-shadow: 0 0 20px 4px rgba(255, 94, 0, 0.15); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-pulseGlow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #ff5e00 0%, #ff8533 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+/* =================== GRADIENT TEXT =================== */
+.gradient-text {
+  background: linear-gradient(135deg, #ff5e00 0%, #ff8533 50%, #ff5e00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =================== CARD HOVER EFFECTS =================== */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 0 1px rgba(255, 94, 0, 0.1), 0 8px 30px rgba(255, 94, 0, 0.06);
+}
+
+/* =================== IMAGE TRANSITIONS =================== */
+.img-crossfade {
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* =================== SCROLLBARS =================== */
+.panel-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #ddd6cc transparent;
+}
+
+.panel-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.panel-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel-scroll::-webkit-scrollbar-thumb {
+  background: #ddd6cc;
+  border-radius: 9999px;
+}
+
+.panel-scroll::-webkit-scrollbar-thumb:hover {
+  background: #c4b5a5;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* =================== FOCUS & SELECTION =================== */
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid #ff5e00;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+/* =================== ACTIVE INDICATOR =================== */
+.tab-indicator {
+  position: relative;
+}
+
+.tab-indicator::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff5e00, #ff8533);
+  border-radius: 2px 2px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.tab-indicator.active::after {
+  transform: scaleX(1);
+}
+
+/* =================== MISC UTILITIES =================== */
+.ring-glow-orange {
+  box-shadow: 0 0 0 3px rgba(255, 94, 0, 0.2);
+}
+
+.shadow-lifted {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.border-gradient {
+  border-image: linear-gradient(135deg, #ff5e00, #ff8533) 1;
+}
